@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: elasticsearch-discovery
+  Namespace: ELK
   labels:
     component: elasticsearch
     role: master
