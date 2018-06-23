@@ -70,6 +70,6 @@ spec:
         - name: storage
           mountPath: /data
       volumes:
-          - emptyDir:
-              medium: ""
-            name: "storage"
+        - name: storage
+          hostPath:
+            path: /home/bsharin/elk/elasticsearch/master
