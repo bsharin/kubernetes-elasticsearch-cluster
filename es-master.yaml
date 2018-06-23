@@ -2,6 +2,7 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: es-master
+  namespace: elk
   labels:
     component: elasticsearch
     role: master
@@ -35,7 +36,7 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         - name: CLUSTER_NAME
-          value: myesdb
+          value: es-cluster
         - name: NUMBER_OF_MASTERS
           value: "2"
         - name: NODE_MASTER
@@ -47,7 +48,7 @@ spec:
         - name: HTTP_ENABLE
           value: "false"
         - name: ES_JAVA_OPTS
-          value: -Xms256m -Xmx256m
+          value: -Xms512m -Xmx512m
         - name: PROCESSORS
           valueFrom:
             resourceFieldRef:
